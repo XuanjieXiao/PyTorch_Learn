@@ -22,5 +22,5 @@ def insert_sort(li):
         print(li)
 
 
-li = [3,2,4,1,5,6,7,8,9]
+li = [3,2,4,1,5,8,6,9,7]
 insert_sort(li)
