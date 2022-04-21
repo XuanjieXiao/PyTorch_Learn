@@ -11,7 +11,8 @@
 @time: 2022/4/20 下午7:50
 """
 
-def sift(li,low,high):
+
+def sift(li, low, high):
     """
 
     :param li: 列表
@@ -19,13 +20,17 @@ def sift(li,low,high):
     :param high: 堆的最后一个元素的位置
     :return:
     """
-    i = low #
-    j = 2*i+1 #
-    tmp = li[low] #
-    while j <=high and : #
-        if li[j+1] >li[j]: #
-            j =j+1 #
-
+    i = low  # i 最开始指向根节点
+    j = 2 * i + 1  # j开始是左孩子
+    tmp = li[low]  # 把堆顶存起来
+    while j <= high:  # 只要j位置有数据
+        if j + 1 <= high and li[j + 1] > li[j]:  # 如果右边孩子存在且比左边的大
+            j = j + 1  # j指向右孩子
+        if li[j] > tmp:
+            li[i] = li[j]
+            i = j
+            j = 2 * i + 1
+        else:             #tmp 更大,把tmp放到i的位置上
 
 
 
