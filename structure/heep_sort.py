@@ -31,6 +31,29 @@ def sift(li, low, high):
             i = j
             j = 2 * i + 1
         else:             #tmp 更大,把tmp放到i的位置上
+            li[i] = tmp  #把tmp放到某一及领导的位置
+            break
+    else:
+        li[i] = tmp  #把tmp放到叶子节点上
+
+
+def heep_sort(li):
+    n = len(li)
+    for i in range((n-2)//2, -1,-1):
+
+        # i代表建立堆的时候调整的部分的根的下标
+        sift(li, i, n-1)
+    #建立堆完成
+    print(li)
+
+li = [i for i in range(100)]
+import random
+random.shuffle(li)
+print(li)
+heep_sort(li)
+
+
+
 
 
 
