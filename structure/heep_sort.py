@@ -44,13 +44,19 @@ def heep_sort(li):
         # i代表建立堆的时候调整的部分的根的下标
         sift(li, i, n-1)
     #建立堆完成
-    print(li)
+    #print(li)
+    for i in range(n-1,-1,-1):
+        # i 指向当前堆的最后一个元素
+        li[0],li[i] = li[i],li[0]
+        sift(li,0,i-1) #i-1 是新的high
+
 
 li = [i for i in range(100)]
 import random
 random.shuffle(li)
 print(li)
 heep_sort(li)
+print(li)
 
 
 
