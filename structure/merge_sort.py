@@ -46,3 +46,4 @@ random.shuffle(li)
 print(li)
 merge_sort(li, 0, len(li) - 1)
 print(li)
+
