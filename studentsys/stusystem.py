@@ -13,6 +13,7 @@
 filename = 'students.txt'
 import os
 
+
 def main():
     while True:
         menu()
@@ -105,19 +106,19 @@ def search():
 def delete():
     while True:
         student_id = input('请输入要删除的学生id:')
-        if student_id !='':
+        if student_id != '':
             if os.path.exists(filename):
-                with open(filename,'r',encoding='utf-8') as file:
+                with open(filename, 'r', encoding='utf-8') as file:
                     student_old = file.readlines()
             else:
                 student_old = []
             flag = False
             if student_old:
-                with open(filename,'w',encoding='utf-8') as wfile:
+                with open(filename, 'w', encoding='utf-8') as wfile:
                     d = {}
                     for item in student_old:
-                        d = dict(eval(item)) #将字符串转换为字典
-                        if d['id']!=student_id:
+                        d = dict(eval(item))  # 将字符串转换为字典
+                        if d['id'] != student_id:
                             wfile.write(str(d))
                         else:
                             flag = True
@@ -128,18 +129,44 @@ def delete():
             else:
                 print('无学生数据')
                 break
-            show()   #重新显示全部数据
+            show()  # 重新显示全部数据
             answer = input('是否继续删除？y/n')
-            if answer =='Y' or answer == 'y':
+            if answer == 'Y' or answer == 'y':
                 continue
             else:
                 break
 
 
-
-
 def modify():
-    pass
+    show()
+    if os.path.exists(filename):
+        with open(filename,'r',encoding='utf-8') as rfile:
+            student_old = rfile.readlines()
+    else:
+        return
+    student_id = input('请输入要修改的学员的id')
+    with open(filename,'w',encoding='utf-8') as wfile:
+        for item in student_old:
+            d = dict(eval(item))
+            if d['id']==student_id:
+                print('找到相关学生信息，可以继续修改')
+                while True:
+                    try:
+                        d['name'] = input('请输入姓名')
+                        d['english'] = input('请输入英语成绩')
+                        d['python'] = input('请输入python成绩')
+                        d['java'] = input('请输入java成绩')
+                    except:
+                        print('输入有误，清重新输入')
+                wfile.write(str(d)+'\n')
+                print('修改完成')
+            else:
+                wfile.write(str(d)+'\n')
+        answer = input('是否继续修改其他学生信息Y\N')
+        if answer == 'y' or answer == 'Y':
+            modify()
+
+
 
 
 def sort():
