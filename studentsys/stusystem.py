@@ -270,7 +270,6 @@ def total():
         print('暂未保存数据信息。。。')
 
 
-
 def show():
     student_list = []
     if os.path.exists(filename):
