@@ -12,6 +12,7 @@
 """
 import torch
 
+
 a = torch.rand(4,3,28,28)
 print(a[0].shape)
 
