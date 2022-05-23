@@ -15,14 +15,16 @@ import torch
 import numpy as np
 import random
 
-matrix = [[1,2,3,9],[4,5,6,8],[2,4,1,1]]
+matrix = [[1, 2, 3, 9], [4, 5, 6, 8], [2, 4, 1, 1]]
 
 print(matrix)
 MAT_In = np.array(matrix)
 print(MAT_In)
 
+
 def max_matrix():
     pass
+
 
 def main():
     pass
